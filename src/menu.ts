@@ -72,12 +72,6 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
       throw new Error("menuAction can not be `null`");
     }
     const actions = {
-      displayConfig: async (state: AppState): Promise<void> => {
-        console.log(state.config.all);
-        console.log("Press any key to return to Main Menu ...");
-        await keypress();
-        state.menuActionEmitter.emit("actionCompleted", state);
-      },
       createNewRelease: async (state: AppState): Promise<void> => {
         await createNewRelease(state);
         console.log("Press any key to return to Main Menu ...");

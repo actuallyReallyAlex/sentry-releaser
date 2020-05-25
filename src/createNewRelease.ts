@@ -1,6 +1,47 @@
-import { AppState } from "./types";
-import inquirer from "inquirer";
 import chalk from "chalk";
+import { spawn } from "child_process";
+import inquirer from "inquirer";
+import ora from "ora";
+
+import { AppState } from "./types";
+
+const createCreateReleaseCommand = (state: AppState) => {
+  const projects = state.projects;
+  if (!projects)
+    throw new Error("Variable `projects` is undefined/null/falsey");
+  const mappedCommands = projects
+    .map((project: string) => ` -p ${project}`)
+    .join("");
+  return `sentry-cli releases new${mappedCommands} ${state.version}`;
+};
+
+const commandPromise = (state: AppState): Promise<void> =>
+  new Promise((resolve, reject) => {
+    const sentryAuthToken: string = state.config.get("sentryAuthToken");
+    const sentryOrg: string = state.config.get("sentryOrg");
+    const createReleaseCommand = createCreateReleaseCommand(state);
+
+    const spinner = ora("Creating release").start();
+
+    const shellProcess = spawn(
+      `export SENTRY_AUTH_TOKEN=${sentryAuthToken} && echo TOKEN SET && export SENTRY_ORG=${sentryOrg} && echo ORG SET && VERSION=${state.version} && echo VERSION SET && ${createReleaseCommand} && sentry-cli releases set-commits --auto ${state.version} && echo COMMITS SET && sentry-cli releases finalize "${state.version}"`,
+      { shell: true }
+    );
+
+    shellProcess.stderr.on("data", function (data) {
+      console.log(data.toString());
+      throw new Error(data.toString());
+    });
+    shellProcess.on("exit", function (exitCode) {
+      if (exitCode === 0) {
+        spinner.succeed(`${state.version} Released`);
+        resolve();
+      } else {
+        spinner.warn("Error");
+        reject();
+      }
+    });
+  });
 
 const createNewRelease = async (state: AppState): Promise<void> => {
   try {
@@ -28,10 +69,7 @@ const createNewRelease = async (state: AppState): Promise<void> => {
     const separatedProjects: string[] = unseparatedProjects.split(/,/g);
     state.projects = separatedProjects;
 
-    console.log("\n----------");
-
-    console.log(`${chalk.yellowBright("version")} - ${state.version}`);
-    console.log(`${chalk.yellowBright("projects")} - ${state.projects.length}`);
+    await commandPromise(state);
     console.log("\n");
   } catch (error) {
     console.error(error);

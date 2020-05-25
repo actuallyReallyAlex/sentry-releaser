@@ -9,9 +9,4 @@ export interface AppState {
   version: string | null;
 }
 
-export type MenuAction =
-  | "createNewRelease"
-  | "displayConfig"
-  | "about"
-  | "exit"
-  | null;
+export type MenuAction = "createNewRelease" | "about" | "exit" | null;
