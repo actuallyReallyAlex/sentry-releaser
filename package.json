@@ -1,6 +1,6 @@
 {
   "name": "sentry-releaser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A tool to help with Sentry Releases.",
   "bin": {
     "sentry-releaser": "./index.js"
@@ -34,6 +34,7 @@
     "@types/inquirer": "^6.5.0",
     "@types/node": "^14.0.5",
     "rimraf": "^3.0.2",
+    "terminalizer": "^0.7.2",
     "typescript": "^3.9.3"
   },
   "dependencies": {
