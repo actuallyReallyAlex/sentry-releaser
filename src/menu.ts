@@ -21,7 +21,7 @@ export const displayMainMenu = (state: AppState): Promise<MenuAction> =>
           message: "Main Menu",
           name: "menuAction",
           choices: [
-            { value: "1", name: "Option 1" },
+            { value: "displayConfig", name: "Display Config" },
             { value: "2", name: "Option 2" },
             { value: "3", name: "Option 3" },
             new inquirer.Separator(),
@@ -72,7 +72,12 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
       throw new Error("menuAction can not be `null`");
     }
     const actions = {
-      1: (state: AppState): void => process.exit(),
+      displayConfig: async (state: AppState): Promise<void> => {
+        console.log(state.config.all);
+        console.log("Press any key to return to Main Menu ...");
+        await keypress();
+        state.menuActionEmitter.emit("actionCompleted", state);
+      },
       2: (state: AppState): void => process.exit(),
       3: (state: AppState): void => process.exit(),
       about: async (state: AppState): Promise<void> => {
