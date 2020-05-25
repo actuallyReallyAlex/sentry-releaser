@@ -20,6 +20,8 @@
     <br> 
 </p>
 
+![Example](https://res.cloudinary.com/alexlee-dev/image/upload/v1590425174/sentry-releaser/create-release.gif)
+
 ## 📝 Table of Contents
 
 - [About](#about)
@@ -76,6 +78,10 @@ Start Sentry Releaser
 ```bash
 $/users/alex/cool-project > sentry-releaser
 ```
+
+### Create a New Release
+
+![Create a New Release](https://res.cloudinary.com/alexlee-dev/image/upload/v1590425174/sentry-releaser/create-release.gif)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
