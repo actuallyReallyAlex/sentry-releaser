@@ -4,6 +4,8 @@
   "description": "A tool to help with Sentry Releases.",
   "main": "index.js",
   "scripts": {
+    "build": "rimraf build && tsc",
+    "start": "node build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/alexlee-dev/sentry-releaser/issues"
   },
-  "homepage": "https://github.com/alexlee-dev/sentry-releaser#readme"
+  "homepage": "https://github.com/alexlee-dev/sentry-releaser#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.3"
+  }
 }
