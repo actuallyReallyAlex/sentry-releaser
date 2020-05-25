@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![NPM](https://img.shields.io/npm/v/.svg)](https://www.npmjs.com/package/sentry-releaser)
+[![NPM](https://img.shields.io/npm/v/sentry-releaser.svg)](https://www.npmjs.com/package/sentry-releaser)
 [![GitHub Issues](https://img.shields.io/github/issues/alexlee-dev/sentry-releaser)](https://github.com/alexlee-dev/sentry-releaser/issues)
 [![Dependencies](https://img.shields.io/david/alexlee-dev/sentry-releaser)](https://github.com/alexlee-dev/sentry-releaser)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
@@ -26,11 +26,8 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
 - [Usage](#usage)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
@@ -79,7 +76,11 @@ Start Sentry Releaser
 $/users/alex/cool-project > sentry-releaser
 ```
 
-### Create a New Release
+### 🚀 Initial Setup
+
+![Inital Setup](https://res.cloudinary.com/alexlee-dev/image/upload/v1590428783/sentry-releaser/setup.gif)
+
+### 📦 Create a New Release
 
 ![Create a New Release](https://res.cloudinary.com/alexlee-dev/image/upload/v1590425174/sentry-releaser/create-release.gif)
 
