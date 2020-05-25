@@ -22,7 +22,6 @@ export const displayMainMenu = (state: AppState): Promise<MenuAction> =>
           message: "Main Menu",
           name: "menuAction",
           choices: [
-            { value: "displayConfig", name: "Display Config" },
             { value: "createNewRelease", name: "Create New Release" },
             new inquirer.Separator(),
             { value: "about", name: "About" },
