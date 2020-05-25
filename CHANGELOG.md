@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+### Fixed
+
+- "Sentry Org" is now highlighted
+
 ## [0.1.0] - 2020-05-24
 
 ### 🚀 First Happy Path Solution
@@ -28,3 +32,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 ### Removed
+
+### Fixed

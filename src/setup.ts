@@ -29,7 +29,7 @@ const setup = async (state: AppState): Promise<void> => {
       {
         type: "input",
         name: "sentryOrg",
-        message: `Please enter your ${"Sentry Org"}:`,
+        message: `Please enter your ${chalk.yellowBright("Sentry Org")}:`,
       },
     ]);
     const sentryOrg: string = answersSentryOrg.sentryOrg;
