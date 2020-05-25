@@ -1,0 +1,23 @@
+{
+  "name": "sentry-releaser",
+  "version": "0.0.0",
+  "description": "A tool to help with Sentry Releases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexlee-dev/sentry-releaser.git"
+  },
+  "keywords": [
+    "Sentry",
+    "Release"
+  ],
+  "author": "Alex Lee <www.alexlee.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexlee-dev/sentry-releaser/issues"
+  },
+  "homepage": "https://github.com/alexlee-dev/sentry-releaser#readme"
+}
