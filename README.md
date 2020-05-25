@@ -65,8 +65,16 @@ yarn global add sentry-releaser
 
 ## 🎈 Usage <a name="usage"></a>
 
+Navigate a terminal session to your git repo.
+
 ```bash
-sentry-releaser
+cd /users/alex/cool-project
+```
+
+Start Sentry Releaser
+
+```bash
+$/users/alex/cool-project > sentry-releaser
 ```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
