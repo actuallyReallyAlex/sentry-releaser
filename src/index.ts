@@ -21,6 +21,8 @@ const main = async (): Promise<void> => {
     config,
     menuAction: null,
     menuActionEmitter,
+    projects: null,
+    version: null,
   };
 
   try {

@@ -5,14 +5,13 @@ export interface AppState {
   config: Configstore;
   menuAction: MenuAction;
   menuActionEmitter: EventEmitter.EventEmitter;
+  projects: string[] | null;
+  version: string | null;
 }
 
-export interface MenuOptions {
-  displayConfig: Function;
-  "2": Function;
-  "3": Function;
-  about: Function;
-  exit: Function;
-}
-
-export type MenuAction = "displayConfig" | "2" | "3" | "about" | "exit" | null;
+export type MenuAction =
+  | "createNewRelease"
+  | "displayConfig"
+  | "about"
+  | "exit"
+  | null;

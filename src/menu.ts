@@ -5,6 +5,7 @@ import { titleScreen } from "pickitt";
 
 import { blankBoxenStyle } from "./constants";
 
+import createNewRelease from "./createNewRelease";
 import { AppState, MenuAction } from "./types";
 
 /**
@@ -22,8 +23,7 @@ export const displayMainMenu = (state: AppState): Promise<MenuAction> =>
           name: "menuAction",
           choices: [
             { value: "displayConfig", name: "Display Config" },
-            { value: "2", name: "Option 2" },
-            { value: "3", name: "Option 3" },
+            { value: "createNewRelease", name: "Create New Release" },
             new inquirer.Separator(),
             { value: "about", name: "About" },
             { value: "exit", name: "Exit" },
@@ -78,8 +78,12 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
         await keypress();
         state.menuActionEmitter.emit("actionCompleted", state);
       },
-      2: (state: AppState): void => process.exit(),
-      3: (state: AppState): void => process.exit(),
+      createNewRelease: async (state: AppState): Promise<void> => {
+        await createNewRelease(state);
+        console.log("Press any key to return to Main Menu ...");
+        await keypress();
+        state.menuActionEmitter.emit("actionCompleted", state);
+      },
       about: async (state: AppState): Promise<void> => {
         await titleScreen("Sentry Releaser");
         console.log(
